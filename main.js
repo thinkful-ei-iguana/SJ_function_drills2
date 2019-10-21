@@ -56,31 +56,93 @@ decode('craft block argon meter bells brown croon droop');
 function daysInMonth(month, leapYear=false) {
   let result;
   switch(month) {
-    case 'January':
-    case 'March':
-    case 'May':
-    case 'July':
-    case 'August':
-    case 'October':
-    case 'December':
-      result = `${month} has 31 days!`
-      break;
-    case 'April':
-    case 'June':
-    case 'September':
-    case 'November':
-      result = `${month} has 30 days!`
-      break;
-    case 'February': if(leapYear){
-        result = `${month} has 29 days`; 
-      }
-      else {
-        result = `${month} has 28 days`;
-      }
-      break;
-    default: result = 'Must provide a valid month.'
+  case 'January':
+  case 'March':
+  case 'May':
+  case 'July':
+  case 'August':
+  case 'October':
+  case 'December':
+    result = `${month} has 31 days!`;
+    break;
+  case 'April':
+  case 'June':
+  case 'September':
+  case 'November':
+    result = `${month} has 30 days!`;
+    break;
+  case 'February': if(leapYear){
+    result = `${month} has 29 days`; 
+  }
+  else {
+    result = `${month} has 28 days`;
+  }
+    break;
+  default: result = 'Must provide a valid month.';
   }
   return result;
 }
 
-console.log(daysInMonth('Giraffe'))
+//console.log(daysInMonth('Giraffe'));
+
+
+function letsRock(playerPick){
+  //Player
+  try{
+    if(playerPick === 1){
+      playerPick = 'rock';
+    } else if (playerPick === 2){
+      playerPick = 'paper';
+    } else if(playerPick === 3){
+      playerPick = 'scissors';
+    } else {
+      throw new TypeError('not a valid choice'); //console.log('not a valid choice');
+    }
+  
+  }catch(e){
+    console.error(e);
+  }
+  //Computer
+  const randomNum = Math.floor(Math.random() * 3) + 1;
+  let computerPick = randomNum;
+  if(computerPick === 1){
+    computerPick = 'rock';
+  } else if(computerPick === 2){
+    computerPick = 'paper';
+  } else if( computerPick === 3){
+    computerPick = 'scissors';
+  }
+  
+  ////////CONDITONALS//////////////
+  if(playerPick === computerPick){
+    return 'its a tie';
+  }
+  
+  if(playerPick === 'rock'){
+    if(computerPick === 'scissors'){
+      return 'Rock beats scissors';
+    } else {
+      return 'you lose try again';
+    }
+  }
+  
+  if(playerPick === 'paper'){
+    if(computerPick === 'rock'){
+      return 'Paper beats rock';
+    } else {
+      return 'you lose try again';
+    }
+  }
+  
+  if(playerPick === 'scissors'){
+    if(computerPick === 'paper'){
+      return 'Scissors beats paper';
+    } else {
+      return 'you lose try again';
+    }
+  }
+  
+   
+}
+  
+console.log(letsRock(1));
