@@ -7,7 +7,7 @@ function jediName(firstName,lastName){
   return `${last}${first}`;
 }
 // return KnoBe
-console.log(jediName('Beyonce','Knowles'));
+//console.log(jediName('Beyonce','Knowles'));
 
 function beyond(num) {
   if (num === Infinity || num === -Infinity) {
@@ -20,6 +20,35 @@ function beyond(num) {
     console.log('To negative infinity');
   }
   if (num === 0) {
-    console.log('Staying home')
+    console.log('Staying home');
   }
 }
+
+
+function decode(message){
+
+  let words = message.split(' ');
+  let finalWord = [];
+
+  
+  words.forEach(word => {
+    if(word[0] === 'a'){
+      finalWord.push(word[2 - 1]);
+    }
+    else if(word[0] === 'b'){
+      finalWord.push(word[3 - 1]);
+    }
+    else if(word[0] === 'c'){
+      finalWord.push(word[4 - 1]);
+    }
+    else if(word[0] === 'd'){
+      finalWord.push(word[5 - 1]);
+    } else {
+      finalWord.push(' ');
+    }
+  });
+
+  return finalWord.join('');
+
+}
+decode('craft block argon meter bells brown croon droop');
